@@ -1,0 +1,10 @@
+set -e
+
+tar xvzf tini/tini-0.18.0.tar.gz
+pushd tini-0.18.0
+  cmake .
+  make
+
+  mkdir -p "${BOSH_INSTALL_TARGET}/bin"
+  mv tini "${BOSH_INSTALL_TARGET}/bin"
+popd

@@ -132,7 +132,7 @@ func WithProcess(
 	cwd string,
 ) SpecOption {
 	return func(spec *specs.Spec) {
-		spec.Process.Args = append([]string{executable}, args...)
+		spec.Process.Args = append([]string{"/var/vcap/packages/bpm/bin/tini", "-w", "-s", "--", executable}, args...)
 		spec.Process.Env = environment
 		spec.Process.Cwd = cwd
 	}
